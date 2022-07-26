@@ -1,6 +1,7 @@
 import React from "react";
 
 import classes from "./Cart.module.css";
+import Modal from "../UI/Modal";
 
 export default function Cart() {
   const cartItems = [{ id: "c1", name: "sushi", amount: 2, price: 12.99 }].map(
@@ -8,7 +9,7 @@ export default function Cart() {
   );
 
   return (
-    <div>
+    <Modal>
       <ul className={classes['cart-items']}>
         {cartItems}
       </ul>
@@ -20,6 +21,6 @@ export default function Cart() {
         <buton className={classes['button--alt']}>Close</buton>
         <button className={classes.button}>Order</button>
       </div>
-    </div>
+    </Modal>
   );
 }
