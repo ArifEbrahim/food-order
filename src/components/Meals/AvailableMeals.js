@@ -1,16 +1,27 @@
-import React from 'react';
+import React from "react";
 
-import DUMMY_MEALS from './dummy-meals';
-import classes from './AvailableMeals.module.css';
+import DUMMY_MEALS from "./dummy-meals";
+import classes from "./AvailableMeals.module.css";
+import MealItem from "./MealItem/MealItem";
+import Card from "../UI/Card";
 
 export default function AvailableMeals() {
-  const mealsList = DUMMY_MEALS.map(meal => <li>{meal.name}</li>);
+  const mealsList = DUMMY_MEALS.map((meal) => (
+    <li>
+      <MealItem
+        key={meal.id}
+        name={meal.name}
+        description={meal.description}
+        price={meal.price}
+      />
+    </li>
+  ));
 
   return (
     <section className={classes.meals}>
-      <ul>
-        {mealsList}
-      </ul>
+      <Card>
+        <ul>{mealsList}</ul>
+      </Card>
     </section>
-  )
+  );
 }
