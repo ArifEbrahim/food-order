@@ -1,7 +1,23 @@
-import React from 'react';
+import React from "react";
 
-export default function MealItemForm() {
+import classes from "./MealItemForm.module.css";
+import Input from "../../UI/Input";
+
+export default function MealItemForm(props) {
   return (
-    <div>MealItemForm</div>
-  )
+    <form className={classes.form}>
+      <Input
+        label={"Amount"}
+        input={{
+          type: "number",
+          id: `amount_${props.id}`,
+          min: "0 ",
+          max: "10",
+          step: "1",
+          defaultValue: "1",
+        }}
+      />
+      <button>+ Add</button>
+    </form>
+  );
 }
