@@ -11,9 +11,16 @@ export default function Cart(props) {
   const total = `£${ctx.total.toFixed(2)}`;
   const hasItems = ctx.items.length > 0;
 
-  const removeItemHandler = (id) => {};
+  const removeItemHandler = (id) => {
+    ctx.removeItem(id);
+  };
 
-  const addItemHandler = (item) => {};
+  const addItemHandler = (item) => {
+    ctx.addItem({
+      ...item,
+      amount: 1,
+    });
+  };
 
   const cartItems = ctx.items.map((item) => (
     <CartItem
