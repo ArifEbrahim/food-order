@@ -5,6 +5,8 @@ Did somebody say Just Munch? A food ordering app to practice the following:
 - useState
 - useContext
 - useReducer
+- forms with validation
+- GET/POST requests with the Fetch API
 
 ### Screenshot
 
