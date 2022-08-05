@@ -40,8 +40,14 @@ const Checkout = (props) => {
       isNameValid && isStreetValid && isCityValid && isPostCodeValid;
 
     if (formIsValid) {
-      //submit data
+      props.onConfirm({
+        name,
+        street,
+        city,
+        postCode,
+      });
     } else {
+      return;
     }
   };
 

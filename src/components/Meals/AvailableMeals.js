@@ -12,7 +12,7 @@ export default function AvailableMeals() {
   useEffect(() => {
     const fetchMeals = async () => {
       setIsLoading(true);
-      const response = await fetch(process.env.REACT_APP_API_KEY);
+      const response = await fetch(process.env.REACT_APP_GET_KEY);
 
       if (!response.ok) {
         throw new Error("Something went wrong!");

@@ -28,6 +28,16 @@ export default function Cart(props) {
     setIsCheckout(true);
   };
 
+  const submitOrderHandler = async(userData) => {
+    await fetch(process.env.REACT_APP_POST_KEY, {
+      method: 'POST',
+      body: JSON.stringify({
+        user: userData,
+        order: ctx.items
+      })
+    })
+  }
+
   const cartItems = ctx.items.map((item) => (
     <CartItem
       key={item.id}
@@ -59,7 +69,7 @@ export default function Cart(props) {
         <span>Total amount</span>
         <span>{total}</span>
       </div>
-      {isCheckout && <Checkout onCancel={props.onHideCart}/>}
+      {isCheckout && <Checkout onCancel={props.onHideCart} onConfirm={submitOrderHandler} />}
       {!isCheckout && modalActions}
     </Modal>
   );
